@@ -1,3 +1,9 @@
 * {
-    font-family: inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/* You can add global styles to this file, and also import other style files */
+    font-family: JetBrains Mono, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/* You can add global styles to this file, and also import other style files */
 }
+
+html, body { 
+    height: 100%;
+    font-size: .9rem; 
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,12 @@
+<div class="vh-100 d-flex flex-column justify-content-center align-items-center">
+
+    <!-- <pre class="p-5 rounded bg-secondary text-white" *ngIf="(loggedUser$ | async)">{{loggedUser$ | async | json}}</pre> -->
+
+    <form [formGroup]="form" (ngSubmit)="login()" class="form-login d-flex flex-column justify-content-center align-items-center">
+        <input type="email" class="form-control mb-3" placeholder="E-mail" formControlName="email">
+        <input type="password" class="form-control mb-3" placeholder="Passowrd" formControlName="password">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-secondary w-100" >Login</button>
+        <a href="javascript:void(0)" class="mt-4" (click)="router.navigateByUrl('/')" >Back</a>
+    </form>
+
+</div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadUsers } from 'src/app/store/users/users.actions';
-import { IUserState } from 'src/app/store/users/users.reducer';
+import { AppState } from 'src/app/reducers';
+import { loadUsers } from 'src/app/reducers/users/users.actions';
+import { IUserState } from 'src/app/reducers/users/users.reducer';
 
 @Component({
   selector: 'app-users-container',
@@ -10,5 +11,6 @@ import { IUserState } from 'src/app/store/users/users.reducer';
 })
 export class UsersContainerComponent {
   users$ = this.usersStore.select('users');
-  constructor(private usersStore: Store<{ users: IUserState }>) {}
+  
+  constructor(private usersStore: Store<AppState>) {}
 }

@@ -1,0 +1,29 @@
+<nav class="text-center">
+    <!-- <small class="text-muted me-2">{{(loggedUser$ | async)?.name}}</small> -->
+</nav>
+
+<div style="width: 70vw;" class="m-auto">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link" id="nav-counter-tab" data-bs-toggle="tab" data-bs-target="#nav-counter"
+                type="button" role="tab" aria-controls="nav-counter" aria-selected="true">Counter</button>
+            <button class="nav-link active" id="nav-users-tab" data-bs-toggle="tab" data-bs-target="#nav-users"
+                type="button" role="tab" aria-controls="nav-users" aria-selected="false">Users</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade" id="nav-counter" role="tabpanel" aria-labelledby="nav-counter-tab">
+            <div class="d-flex flex-column justify-content-center align-items-center mt-5">
+                <app-main-container />
+                <app-controls />
+            </div>
+        </div>
+
+        <div class="tab-pane fade show active" id="nav-users" role="tabpanel" aria-labelledby="nav-users-tab">
+            <div class="d-flex justify-content-around align-items-center mt-5">
+                <app-users-controls></app-users-controls>
+                <app-users-container></app-users-container>
+            </div>
+        </div>
+    </div>
+</div>

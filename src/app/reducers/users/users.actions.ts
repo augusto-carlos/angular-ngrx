@@ -3,10 +3,10 @@ import { UserModel } from 'src/app/models/user.model';
 
 export const setUsers = createAction(
   '[Users Component] Set Users',
-  props<{ payload: UserModel[] }>()
+  props<{users: UserModel[]}>()
 );
 export const loadUsers = createAction('[Users Component] Load Users');
 export const loadUsersSuccess = createAction(
   '[Users Component] Load Users Success',
-  props<{ payload: UserModel[] }>()
+  props<{ users: UserModel[] }>()
 );

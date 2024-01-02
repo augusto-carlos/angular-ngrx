@@ -15,7 +15,7 @@ export class UsersEffectService {
       ofType(loadUsers.type),
       exhaustMap(() =>
         this.usersService.getUsers().pipe(
-          map((users) => loadUsersSuccess({ payload: users })),
+          map((users) => loadUsersSuccess({ users })),
           catchError(() => EMPTY)
         )
       )

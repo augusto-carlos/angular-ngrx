@@ -2,7 +2,7 @@ import { AddressModel } from './address.model';
 import { CompanyModel } from './company.model';
 
 export interface UserModel {
-  id: number;
+  id: string;
   name: string;
   username: string;
   email: string;

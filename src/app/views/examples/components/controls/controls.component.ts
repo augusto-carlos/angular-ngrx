@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
-import { decrement, increment } from 'src/app/store/counter/counter.actions';
-import { ICounterState } from 'src/app/store/counter/counter.reducer';
+import { decrement, increment } from 'src/app/reducers/counter/counter.actions';
+import { ICounterState } from 'src/app/reducers/counter/counter.reducer';
 
 @Component({
   selector: 'app-controls',

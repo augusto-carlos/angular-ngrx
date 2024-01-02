@@ -1,0 +1,6 @@
+
+   <small class="m-2 text-muted">{{(users$ | async)?.users?.length}}</small>
+
+    <pre class="p-5 rounded bg-secondary text-white m-4" style="height: 50vh; overflow: auto;">
+       {{ users$ | async | json }}
+    </pre>
