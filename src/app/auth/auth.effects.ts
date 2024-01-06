@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { AuthActions } from './reducers/actions-types';
+import * as AuthActions from './reducers/auth.actions';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
 

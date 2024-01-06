@@ -1,6 +1,6 @@
 import { ActionReducerMap, createReducer, on } from '@ngrx/store';
 import { UserModel } from 'src/app/models/user.model';
-import { AuthActions } from './actions-types';
+import * as AuthActions from './auth.actions';
 
 export const authFeatureKey = 'auth';
 

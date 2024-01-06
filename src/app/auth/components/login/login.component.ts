@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
-import { finalize, map, tap } from 'rxjs';
-import { MessageService } from 'src/app/services/message.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AuthState } from '../../reducers';
-import { login } from '../../reducers/auth.actions';
+import { finalize, map } from 'rxjs';
 import { AppState } from 'src/app/reducers';
+import { AuthService } from 'src/app/services/auth.service';
+import { MessageService } from 'src/app/services/message.service';
+import { login } from '../../reducers/auth.actions';
 
 @Component({
   selector: 'app-login',

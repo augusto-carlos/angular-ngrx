@@ -10,7 +10,12 @@ export class AuthService {
 
   constructor(private readonly http: HttpClient) {}
 
-  login(creadentials: any) {
+  login(creadentials: CredentialModel) {
     return this.http.post<UserModel>(`${this.baseUrl}/login`, creadentials);
   }
+}
+
+interface CredentialModel {
+  email: string;
+  password: string;
 }

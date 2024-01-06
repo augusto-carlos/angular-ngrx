@@ -35,7 +35,7 @@ import { metaReducers, reducers } from './reducers';
     BrowserAnimationsModule,
     HttpClientModule,
     AuthModule,
-    //Ngrx Modules
+    //ngrx modules
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
