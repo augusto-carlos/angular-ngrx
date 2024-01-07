@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/reducers';
-import { loadUsers } from 'src/app/reducers/users/users.actions';
+import { UserActions } from 'src/app/reducers/users/users.actions-type';
 import { IUserState } from 'src/app/reducers/users/users.reducer';
 import {
   selectAllUsers,
@@ -14,8 +14,16 @@ import {
   styleUrls: ['./users-container.component.scss'],
 })
 export class UsersContainerComponent {
-  users$ = this.usersStore.select(selectAllUsers);
-  usersTotal$ = this.usersStore.select(selectUsersTotal);
+  users$ = this.store.select(selectAllUsers);
+  usersTotal$ = this.store.select(selectUsersTotal);
 
-  constructor(private usersStore: Store<AppState>) {}
+  constructor(private store: Store<AppState>) {}
+
+  deleteUser(id: string) {
+    this.store.dispatch(UserActions.deleteUser({ id }));
+  }
+
+  selectUser(id: string) {
+    this.store.dispatch(UserActions.selectUserId({ id }));
+  }
 }

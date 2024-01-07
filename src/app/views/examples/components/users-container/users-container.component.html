@@ -1,6 +1,16 @@
+<small class="m-4 text-muted" *ngIf="!!(usersTotal$ | async)">{{usersTotal$ | async}} Users</small>
 
-   <small class="m-2 text-muted">{{usersTotal$ | async}}</small>
+<ul style="list-style: none; padding: 0; max-height: 80vh; overflow: auto;">
+   <li *ngFor="let user of users$ | async"  class="bg-light rounded p-4 m-4 d-flex align-items-center justify-content-between" style="cursor: pointer;" (click)="selectUser(user.id)">
+         <section>
+            <h6>{{user.name}}</h6>
+            <small class="mt-1 text-muted">{{user.email}}</small>
+         </section>
 
-    <pre class="p-5 rounded bg-secondary text-white m-4" style="height: 50vh; overflow: auto;">
-       {{ users$ | async | json }}
-    </pre>
+         <a href="javascript:void(0)" style="text-decoration: none;" class="ms-4 text-danger" (click)="deleteUser(user.id)">
+            <small>
+               Eliminar
+            </small>
+         </a>
+   </li>
+</ul>

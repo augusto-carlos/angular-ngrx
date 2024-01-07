@@ -20,7 +20,7 @@ export const reducers: ActionReducerMap<AppState | any> = {
 //META REDUCERS
 export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
   return (state, action) => {
-    console.table({ stateBefore: state, action });
+    // console.table({ stateBefore: state, action });
     return reducer(state, action);
   };
 }

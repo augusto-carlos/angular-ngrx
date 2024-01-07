@@ -1,16 +1,33 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { IUserState, usersFeatureKey } from './users.reducer';
-import * as fromUsers from './users.reducer';
+import * as fromUser from './users.reducer';
 
-export const selectUsersState =
+export const selectUserState =
   createFeatureSelector<IUserState>(usersFeatureKey);
 
+//retrieve the array of users as Observable
 export const selectAllUsers = createSelector(
-  selectUsersState,
-  fromUsers.selectAll
+  selectUserState,
+  fromUser.selectAll
+);
+
+export const selectUserEntities = createSelector(
+  selectUserState,
+  fromUser.selectEntities
 );
 
 export const selectUsersTotal = createSelector(
-  selectAllUsers,
-  (users) => users?.length
+  selectUserState,
+  fromUser.selectTotal
+);
+
+export const selectCurrentUserId = createSelector(
+  selectUserState,
+  (state) => state.selectedUserId
+);
+
+export const selectCurrentUser = createSelector(
+  selectUserState,
+  selectCurrentUserId,
+  (state, userId) => state.entities[userId!]
 );

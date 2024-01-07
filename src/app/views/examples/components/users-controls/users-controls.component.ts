@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { map } from 'rxjs';
+import { UserModel } from 'src/app/models/user.model';
 import { AppState } from 'src/app/reducers';
-import * as UsersActions from 'src/app/reducers/users/users.actions';
+import { UserActions } from 'src/app/reducers/users/users.actions-type';
+import { selectCurrentUser } from 'src/app/reducers/users/users.selectors';
 
 @Component({
   selector: 'app-users-controls',
@@ -9,18 +13,28 @@ import * as UsersActions from 'src/app/reducers/users/users.actions';
   styleUrls: ['./users-controls.component.scss'],
 })
 export class UsersControlsComponent {
-  constructor(private store: Store<AppState>) {}
+  form: FormGroup;
+
+  selectedUser$ = this.store
+    .select(selectCurrentUser)
+    .pipe(map(this.stringifyUser));
+
+  constructor(private store: Store<AppState>) {
+    this.form = new FormBuilder().group({
+      changes: '',
+    });
+  }
 
   loadUser() {
-    this.store.dispatch(UsersActions?.loadUsers());
+    this.store.dispatch(UserActions.loadUsers());
   }
 
-  addUser(data: string) {
-    const users = [JSON.parse(data)];
-    this.store.dispatch(UsersActions?.setUsers({ users }));
+  updateUser(changes: string) {
+    const user = JSON.parse(changes);
+    this.store.dispatch(UserActions.updateUser({ user }));
   }
 
-  deleteUser(id: string) {
-    this.store.dispatch(UsersActions?.deleteUser({ id }));
+  private stringifyUser(user: any) {
+    return JSON.stringify(user, undefined, 4);
   }
 }

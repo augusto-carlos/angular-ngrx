@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { isLoggedInSelector } from './auth/auth.selectors';
 import { AppState } from './reducers';
 import { login, logout } from './auth/reducers/auth.actions';
+import { selectCurrentUser } from './reducers/users/users.selectors';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +14,9 @@ import { login, logout } from './auth/reducers/auth.actions';
 export class AppComponent implements OnInit {
   message = this.messageService.message();
   isLoggedIn$ = this.store.select(isLoggedInSelector);
+  currentUserName$ = this.store
+    .select(selectCurrentUser)
+    .pipe(map((user) => user?.name));
 
   constructor(
     private messageService: MessageService,
